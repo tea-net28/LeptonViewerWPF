@@ -16,4 +16,9 @@
     <ProjectReference Include="..\LogWriter\LogWriter.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="dll\" />
+    <Folder Include="Classes\" />
+  </ItemGroup>
+
 </Project>
