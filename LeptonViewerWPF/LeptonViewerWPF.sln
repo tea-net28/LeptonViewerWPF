@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeptonViewerWPF", "LeptonViewerWPF\LeptonViewerWPF.csproj", "{543774A9-B835-4513-9020-705B98A227CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogWriter", "LogWriter\LogWriter.csproj", "{1CBC57EA-0780-4B84-A8E9-5F9E4D81455B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{543774A9-B835-4513-9020-705B98A227CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543774A9-B835-4513-9020-705B98A227CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543774A9-B835-4513-9020-705B98A227CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543774A9-B835-4513-9020-705B98A227CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CBC57EA-0780-4B84-A8E9-5F9E4D81455B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBC57EA-0780-4B84-A8E9-5F9E4D81455B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBC57EA-0780-4B84-A8E9-5F9E4D81455B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBC57EA-0780-4B84-A8E9-5F9E4D81455B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE3314C6-4920-4466-8386-E8A71798239B}
+	EndGlobalSection
+EndGlobal
