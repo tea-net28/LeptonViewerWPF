@@ -16,17 +16,15 @@ public class OpenCvClass
     /// </summary>
     public OpenCvClass()
     {
-        string path = Path.GetFullPath(".\\Models\\haarcascade_frontalface_default.xml");
-        LogWriter.AddLog(path);
-        if (File.Exists(path))
-            LogWriter.AddLog("File is exist");
-        else
+        string filePath = Path.GetFullPath(".\\Models\\haarcascade_frontalface_default.xml");
+
+        if (!File.Exists(filePath))
         {
-            LogWriter.AddLog("File is NOT exist");
+            LogWriter.AddErrorLog($"ファイルが存在しません\nFilePath: {filePath}");
             return;
         }
         _cascadeClassifier = new CascadeClassifier();
-        _cascadeClassifier.Load(path);
+        _cascadeClassifier.Load(filePath);
     }
 
     /// <summary>
