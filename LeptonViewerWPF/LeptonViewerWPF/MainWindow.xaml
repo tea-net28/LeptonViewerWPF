@@ -37,14 +37,14 @@
             <TextBlock TextWrapping="Wrap" Text="{Binding Logs}"/>
         </ScrollViewer>
 
-        <Label Content="Raw14 Image" Grid.Column="1" FontSize="20" VerticalAlignment="Bottom"/>
-        <Image Source="{Binding LeptonImage1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Margin="25,14,25,14"/>
+        <Label Content="Raw Image - 14bit(Gray16)" Grid.Column="1" FontSize="20" VerticalAlignment="Bottom"/>
+        <Image x:Name="LeptonImage1" Source="{Binding LeptonImage1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Margin="25,14,25,14"/>
 
-        <Label Content="Restrict Image" Grid.Column="2" FontSize="20" VerticalAlignment="Bottom"/>
-        <Image Source="{Binding LeptonImage2}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="2" Grid.RowSpan="4" Margin="25,14,25,14"/>
+        <Label Content="Restrict Image - 16bit" Grid.Column="2" FontSize="20" VerticalAlignment="Bottom"/>
+        <Image x:Name="LeptonImage2" Source="{Binding LeptonImage2}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="2" Grid.RowSpan="4" Margin="25,14,25,14"/>
 
-        <Label Content="Face Detection" Grid.Column="2" Grid.Row="5" FontSize="20" VerticalAlignment="Bottom"/>
-        <Image Source="{Binding LeptonImage3}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="6" Grid.Column="2" Grid.RowSpan="4" Margin="25,14,25,14"/>
+        <Label Content="Face Detection - 8bit RGB" Grid.Column="2" Grid.Row="5" FontSize="20" VerticalAlignment="Bottom"/>
+        <Image x:Name="LeptonImage3" Source="{Binding LeptonImage3}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="6" Grid.Column="2" Grid.RowSpan="4" Margin="25,14,25,14"/>
 
         <Label Content="Settings" Grid.Column="1" Grid.Row="5" FontSize="20" VerticalAlignment="Bottom"/>
         <Grid Grid.Column="1" Grid.Row="6">
@@ -65,9 +65,18 @@
             <TextBlock Text="{Binding MaxTemp}" FontSize="14" VerticalAlignment="Bottom"/>
             <Slider Grid.Column="1" VerticalAlignment="Center" Maximum="140" Minimum="-10" Value="{Binding MaxTemp}" Margin="0,0,10,0"/>
         </Grid>
-        <Button Content="Normalize" Grid.Column="1" Grid.Row="8" Margin="10"/>
+        <Button Command="{Binding NormalizeCommand}" Content="Normalize" Grid.Column="1" Grid.Row="8" Margin="10"/>
 
         <TextBlock Text="{Binding MinMaxTemp}" x:Name="TempTextBlock" FontSize="16" Grid.Row="10" Grid.Column="1"/>
         <TextBlock Text="{Binding MouseCursorTemp}" FontSize="16" Grid.Row="11" Grid.Column="1"/>
+
+        <Grid Grid.Column="2" Grid.Row="11">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding StartStreamingCommand}" Content="Start Streaming" Margin="10,0,10,0"/>
+            <Button Command="{Binding StopStreamingCommand}" Content="Stop Streaming" Margin="10,0,10,0" Grid.Column="1"/>
+        </Grid>
     </Grid>
 </Window>

@@ -1,13 +1,7 @@
 ﻿/**
  * 指定したパスにログファイルを出力するクラスライブラリ
  * 通常のログとエラーログを分けることができる
- * また Unity で使用する場合は Debug.Log() も実行する
  */
-
-// どのアプリケーションで使用するかを設定
-#define WPF
-//#deifne UNITY_EDITOR
-//#define UNITY_EXE
 
 using System;
 using System.Collections.Concurrent;
@@ -21,20 +15,10 @@ using System.Threading;
 public static class LogWriter
 {
     // ログファイルを出力するパスの設定
-#if WPF
     public static string _logDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Logs";
-#endif
-#if UNITY_EDITOR
-    // Unity Editor のときはプロジェクトのトップにフォルダを作成
-    public static string _logDir = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
-#endif
-#if UNITY_EXE
-    // Unity の exe ファイルのときは .exe ファイルと同じフォルダに書き出す
-    public static string _logDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\'), "Logs");
-#endif
 
     // キューを保存する変数
-    private static ConcurrentQueue<string> _q_Log;
+    private static ConcurrentQueue<string>? _q_Log;
     public static ConcurrentQueue<string> Q_Log
     {
         get
@@ -47,8 +31,6 @@ public static class LogWriter
 
     // ログを追記する際に使用するスレッド制限
     private static SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
-
-
 
 
 
@@ -79,7 +61,7 @@ public static class LogWriter
         string dateTime = DateTime.Now.ToString("[MM/dd HH:mm:ss.fff]");
         string logText = String.IsNullOrWhiteSpace(methodName) ? $"{dateTime} WARNING: {text}" : $"{dateTime} WARNING 【{methodName}】 {text}";
 
-        Q_Log.Enqueue($"<color=yellow>{logText}</color>");
+        Q_Log.Enqueue(logText);
 
         if (addLogFile)
             AddInfo(String.IsNullOrWhiteSpace(methodName) ? $"WARNING: {text}" : $"WARNING 【{methodName}】 {text}", dateTime);

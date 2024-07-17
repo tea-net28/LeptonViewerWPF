@@ -80,6 +80,9 @@ namespace LeptonViewerWPF
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
+            // Lepton のストリーミングの終了
+            _mainViewModel?.LeptonClass?.StopStreaming();
+
             if (_mutex != null)
             {
                 _mutex.ReleaseMutex();
